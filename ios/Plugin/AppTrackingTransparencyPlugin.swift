@@ -6,8 +6,10 @@ import AppTrackingTransparency
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitorjs.com/docs/plugins/ios
  */
-@objc(AppTrackingTransparency)
-public class AppTrackingTransparency: CAPPlugin {
+@objc(AppTrackingTransparencyPlugin)
+public class AppTrackingTransparencyPlugin: CAPPlugin {
+    private let implementation = AppTrackingTransparency()
+
     @objc func getStatus(_ call: CAPPluginCall) {
         if #available(iOS 14.0, *) {
             let status : ATTrackingManager.AuthorizationStatus = ATTrackingManager.trackingAuthorizationStatus
@@ -30,5 +32,5 @@ public class AppTrackingTransparency: CAPPlugin {
         } else {
             call.success([ "status": "authorized" ])
         }
-     }
+    }
 }
