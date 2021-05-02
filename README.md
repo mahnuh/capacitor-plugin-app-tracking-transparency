@@ -1,5 +1,9 @@
 # capacitor-plugin-app-tracking-transparency
 
+<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency"><img src="https://img.shields.io/npm/l/capacitor-plugin-app-tracking-transparency?style=flat-square" /></a>
+<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency"><img src="https://img.shields.io/npm/dw/capacitor-plugin-app-tracking-transparency?style=flat-square" /></a>
+<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency"><img src="https://img.shields.io/npm/v/capacitor-plugin-app-tracking-transparency?style=flat-square" /></a>
+
 Capacitor plugin to request user authorization to access app-related data for tracking the user or the device.
 
 ## Platform support
