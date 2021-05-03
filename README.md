@@ -45,16 +45,12 @@ Add this to your app's Info.plist and update the message according to your needs
 ## Usage
 
 ```typescript
-import { Plugins } from '@capacitor/core';
 import 'capacitor-plugin-app-tracking-transparency'; // only if you want web support
 
-// Type Safe. Current capacitor 2 limitation
 import {
-  AppTrackingTransparencyPlugin,
+  AppTrackingTransparency,
   AppTrackingStatusResponse,
 } from 'capacitor-plugin-app-tracking-transparency';
-
-const AppTrackingTransparency = Plugins.AppTrackingTransparency as AppTrackingTransparencyPlugin;
 
 ...
 
