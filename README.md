@@ -12,6 +12,13 @@ Read more about Apple's App Tracking Transparency framework [here](https://devel
 
 iOS only but with web fallback for development purposes.
 
+## Plugin versions
+
+| Capacitor version | Plugin version                                    |
+| ---------- | ----------------------------------------- |
+| >= 3.0.0 | 2.x.x |
+| < 3.0.0 | 1.x.x |
+
 ## Maintainers
 
 | Maintainer | GitHub                                    | Social                                        |
@@ -19,9 +26,9 @@ iOS only but with web fallback for development purposes.
 | Manuel Heidrich | [mahnuh](https://github.com/mahnuh) | [@mahnuh](https://twitter.com/mahnuh) |
 | prototype.berlin GmbH | [prototype-berlin](https://github.com/prototype-berlin) | [@prototypeberlin](https://twitter.com/prototypeberlin) |
 
-## Installation
+## Install
 
-```
+```bash
 npm install capacitor-plugin-app-tracking-transparency
 npx cap sync
 ```
@@ -32,9 +39,8 @@ Add this to your app's Info.plist and update the message according to your needs
 
 ```xml
 <key>NSUserTrackingUsageDescription</key>
-<string>Your data will be used to deliver personalized apps to you.</string>
+<string>Your data will be used to deliver personalized ads to you.</string>
 ```
-
 
 ## Usage
 
@@ -73,6 +79,45 @@ public async requestPermission(): Promise<AppTrackingStatusResponse> {
 
 Both available methods return `AppTrackingStatusResponse` with `status: AppTrackingStatus`, which will be one of the following: `authorized`, `denied`, `notDetermined` or `restricted`. See [Apple's docs](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/authorizationstatus) for reference.
 
+## API
+
+<docgen-index>
+
+* [`getStatus()`](#getstatus)
+* [`requestPermission()`](#requestpermission)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### getStatus()
+
+```typescript
+getStatus() => any
+```
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### requestPermission()
+
+```typescript
+requestPermission() => any
+```
+
+**Returns:** <code>any</code>
+
+--------------------
+
+</docgen-api>
+
+## Todos
+
+- [ ] Extend API docs
+
 ## License
 
-See [LICENSE](https://github.com/mahnuh/capacitor-plugin-app-tracking-transparency/blob/main/LICENSE).
+[MIT](https://github.com/mahnuh/capacitor-plugin-app-tracking-transparency/blob/main/LICENSE)
