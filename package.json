@@ -12,8 +12,7 @@
     "CapacitorPluginAppTrackingTransparency.podspec"
   ],
   "author": "Manuel Heidrich",
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Manuel Heidrich",
       "email": "manuel@heidrich.dev",
       "url": "https://www.manuel-heidrich.dev"
@@ -51,7 +50,8 @@
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "echo \"TODO: implement tests\""
   },
   "devDependencies": {
     "@capacitor/android": "next",
