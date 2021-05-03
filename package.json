@@ -12,7 +12,8 @@
     "CapacitorPluginAppTrackingTransparency.podspec"
   ],
   "author": "Manuel Heidrich",
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Manuel Heidrich",
       "email": "manuel@heidrich.dev",
       "url": "https://www.manuel-heidrich.dev"
