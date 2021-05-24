@@ -44,6 +44,8 @@ Add this to your app's Info.plist and update the message according to your needs
 <string>Your data will be used to deliver personalized ads to you.</string>
 ```
 
+This message can be provided in multiple languages by using a `InfoPlist.strings` file. See the [Apple docs](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) or [this stack overflow answer](https://stackoverflow.com/a/25736915) for help.
+
 ## Usage
 
 ```typescript
