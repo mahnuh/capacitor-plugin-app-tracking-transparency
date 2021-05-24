@@ -19,6 +19,8 @@ iOS only but with web fallback for development purposes.
 | >= 3.0.0 | 2.x.x |
 | < 3.0.0 | 1.x.x |
 
+For plugin version 1.x.x docs please refer to [branch v1](https://github.com/mahnuh/capacitor-plugin-app-tracking-transparency/tree/v1).
+
 ## Maintainers
 
 | Maintainer | GitHub                                    | Social                                        |
