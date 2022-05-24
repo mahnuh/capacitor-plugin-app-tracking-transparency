@@ -13,11 +13,11 @@ public class AppTrackingTransparencyPlugin: CAPPlugin {
     @objc func getStatus(_ call: CAPPluginCall) {
         if #available(iOS 14.0, *) {
             let status : ATTrackingManager.AuthorizationStatus = ATTrackingManager.trackingAuthorizationStatus
-            call.success([
+            call.resolve([
                 "status": status.rawValue == 0 ? "notDetermined" : status.rawValue == 1 ? "restricted" : status.rawValue == 2 ? "denied" : status.rawValue == 3 ? "authorized" : ""
             ])
         } else {
-            call.success([ "status": "authorized" ])
+            call.resolve([ "status": "authorized" ])
         }
     }
 
@@ -25,12 +25,12 @@ public class AppTrackingTransparencyPlugin: CAPPlugin {
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization { (res) in
                 let status = res
-                call.success([
+                call.resolve([
                     "status": status.rawValue == 0 ? "notDetermined" : status.rawValue == 1 ? "restricted" : status.rawValue == 2 ? "denied" : status.rawValue == 3 ? "authorized" : ""
                 ])
             }
         } else {
-            call.success([ "status": "authorized" ])
+            call.resolve([ "status": "authorized" ])
         }
     }
 }
