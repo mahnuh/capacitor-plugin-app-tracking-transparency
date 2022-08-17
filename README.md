@@ -26,7 +26,6 @@ For plugin version 1.x.x docs please refer to [branch v1](https://github.com/mah
 | Maintainer | GitHub                                    | Social                                        |
 | ---------- | ----------------------------------------- | --------------------------------------------- |
 | Manuel Heidrich | [mahnuh](https://github.com/mahnuh) | [@mahnuh](https://twitter.com/mahnuh) |
-| prototype.berlin GmbH | [prototype-berlin](https://github.com/prototype-berlin) | [@prototypeberlin](https://twitter.com/prototypeberlin) |
 
 ## Install
 
