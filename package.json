@@ -56,10 +56,10 @@
   },
   "devDependencies": {
     "@capacitor/core": "^3.2.4",
-    "@capacitor/docgen": "^0.0.10",
+    "@capacitor/docgen": "^0.2.0",
     "@capacitor/ios": "^3.2.4",
     "@ionic/eslint-config": "^0.3.0",
-    "@ionic/prettier-config": "^1.0.1",
+    "@ionic/prettier-config": "^2.0.0",
     "@ionic/swiftlint-config": "^1.1.2",
     "eslint": "^7.11.0",
     "prettier": "~2.2.0",
