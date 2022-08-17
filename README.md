@@ -26,7 +26,6 @@ For plugin version 1.x.x docs please refer to [branch v1](https://github.com/mah
 | Maintainer | GitHub                                    | Social                                        |
 | ---------- | ----------------------------------------- | --------------------------------------------- |
 | Manuel Heidrich | [mahnuh](https://github.com/mahnuh) | [@mahnuh](https://twitter.com/mahnuh) |
-| prototype.berlin GmbH | [prototype-berlin](https://github.com/prototype-berlin) | [@prototypeberlin](https://twitter.com/prototypeberlin) |
 
 ## Install
 
@@ -85,6 +84,7 @@ Both available methods return `AppTrackingStatusResponse` with `status: AppTrack
 
 * [`getStatus()`](#getstatus)
 * [`requestPermission()`](#requestpermission)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -94,10 +94,10 @@ Both available methods return `AppTrackingStatusResponse` with `status: AppTrack
 ### getStatus()
 
 ```typescript
-getStatus() => any
+getStatus() => Promise<AppTrackingStatusResponse>
 ```
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;<a href="#apptrackingstatusresponse">AppTrackingStatusResponse</a>&gt;</code>
 
 --------------------
 
@@ -105,12 +105,25 @@ getStatus() => any
 ### requestPermission()
 
 ```typescript
-requestPermission() => any
+requestPermission() => Promise<AppTrackingStatusResponse>
 ```
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;<a href="#apptrackingstatusresponse">AppTrackingStatusResponse</a>&gt;</code>
 
 --------------------
+
+
+### Type Aliases
+
+
+#### AppTrackingStatusResponse
+
+<code>{ status: <a href="#apptrackingstatus">AppTrackingStatus</a> }</code>
+
+
+#### AppTrackingStatus
+
+<code>'authorized' | 'denied' | 'notDetermined' | 'restricted'</code>
 
 </docgen-api>
 

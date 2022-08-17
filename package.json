@@ -1,6 +1,6 @@
 {
   "name": "capacitor-plugin-app-tracking-transparency",
-  "version": "2.0.1",
+  "version": "2.0.2-beta.1",
   "description": "Capacitor plugin to request user authorization to access app-related data for tracking the user or the device.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -38,9 +38,8 @@
     "native"
   ],
   "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "verify": "npm run verify:ios && npm run verify:web",
     "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin && cd ..",
-    "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "verify:web": "npm run build",
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
     "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- autocorrect --format",
@@ -55,22 +54,21 @@
     "test": "echo \"TODO: implement tests\""
   },
   "devDependencies": {
-    "@capacitor/core": "^3.2.4",
-    "@capacitor/docgen": "^0.0.10",
+    "@capacitor/core": "^4.0.1",
+    "@capacitor/docgen": "^0.2.0",
     "@capacitor/ios": "^3.2.4",
     "@ionic/eslint-config": "^0.3.0",
-    "@ionic/prettier-config": "^1.0.1",
+    "@ionic/prettier-config": "^2.0.0",
     "@ionic/swiftlint-config": "^1.1.2",
     "eslint": "^7.11.0",
     "prettier": "~2.2.0",
-    "prettier-plugin-java": "~1.0.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.32.0",
     "swiftlint": "^1.0.1",
     "typescript": "~4.0.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "3.x"
+    "@capacitor/core": ">= 3.0.0"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
