@@ -16,6 +16,7 @@ iOS only but with web fallback for development purposes.
 
 | Capacitor version | Plugin version                                    |
 | ---------- | ----------------------------------------- |
+| 5.x | >= 2.0.2 |
 | 4.x | >= 2.0.2 |
 | 3.x | >= 2.0.0 |
 | < 3.0.0 | 1.x.x |
@@ -49,8 +50,6 @@ This message can be provided in multiple languages by using a `InfoPlist.strings
 ## Usage
 
 ```typescript
-import 'capacitor-plugin-app-tracking-transparency'; // only if you want web support
-
 import {
   AppTrackingTransparency,
   AppTrackingStatusResponse,
