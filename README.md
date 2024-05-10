@@ -16,6 +16,7 @@ iOS only but with web fallback for development purposes.
 
 | Capacitor version | Plugin version                                    |
 | ---------- | ----------------------------------------- |
+| 6.x | >= 2.0.2 |
 | 5.x | >= 2.0.2 |
 | 4.x | >= 2.0.2 |
 | 3.x | >= 2.0.0 |
@@ -46,6 +47,10 @@ Add this to your app's Info.plist and update the message according to your needs
 ```
 
 This message can be provided in multiple languages by using a `InfoPlist.strings` file. See the [Apple docs](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) or [this stack overflow answer](https://stackoverflow.com/a/25736915) for help.
+
+## Plugin demo
+
+There is a small demo app available to showcase this plugin and its usage: [capacitor-plugin-app-tracking-transparency-demo-app](https://github.com/mahnuh/capacitor-plugin-app-tracking-transparency-demo-app)
 
 ## Usage
 
