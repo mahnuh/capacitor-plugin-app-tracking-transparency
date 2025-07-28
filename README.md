@@ -16,7 +16,7 @@ iOS only but with web fallback for development purposes.
 
 | Capacitor version | Plugin version                                    |
 | ---------- | ----------------------------------------- |
-| 6.x | >= 2.0.2 |
+| >= 6.x | >= 2.0.2 |
 | 5.x | >= 2.0.2 |
 | 4.x | >= 2.0.2 |
 | 3.x | >= 2.0.0 |
