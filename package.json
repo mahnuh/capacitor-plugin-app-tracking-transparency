@@ -6,12 +6,11 @@
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
-  "engines": {
-    "node": ">=16.0.0"
-  },
   "files": [
     "dist/",
-    "ios/Plugin/",
+    "ios/Sources",
+    "ios/Tests",
+    "Package.swift",
     "CapacitorPluginAppTrackingTransparency.podspec"
   ],
   "author": "Manuel Heidrich",
@@ -42,36 +41,37 @@
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:web",
-    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin && cd ..",
+    "verify:ios": "xcodebuild -scheme CapacitorPluginAppTrackingTransparency -destination generic/platform=iOS",
     "verify:web": "npm run build",
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
-    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- autocorrect --format",
+    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
     "eslint": "eslint . --ext ts",
-    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
     "swiftlint": "node-swiftlint",
     "docgen": "docgen --api AppTrackingTransparencyPlugin --output-readme README.md --output-json dist/docs.json",
-    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
+    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build",
-    "test": "echo \"TODO: implement tests\""
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@capacitor/core": "^4.3.0",
-    "@capacitor/docgen": "^0.2.0",
-    "@capacitor/ios": "^4.3.0",
-    "@ionic/eslint-config": "^0.3.0",
-    "@ionic/prettier-config": "3.0.0",
-    "@ionic/swiftlint-config": "^1.1.2",
-    "eslint": "^7.11.0",
-    "prettier": "2.8.8",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.32.0",
-    "swiftlint": "^1.0.1",
-    "typescript": "~4.0.3"
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/docgen": "^0.3.0",
+    "@capacitor/ios": "^7.0.0",
+    "@ionic/eslint-config": "^0.4.0",
+    "@ionic/prettier-config": "^4.0.0",
+    "@ionic/swiftlint-config": "^2.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-java": "^2.6.6",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.30.1",
+    "swiftlint": "^2.0.0",
+    "typescript": "~4.1.5"
   },
   "peerDependencies": {
-    "@capacitor/core": ">= 3.0.0"
+    "@capacitor/core": ">=7.0.0"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
