@@ -1,8 +1,14 @@
 # capacitor-plugin-app-tracking-transparency
 
-<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency"><img src="https://img.shields.io/npm/l/capacitor-plugin-app-tracking-transparency?style=flat-square" /></a>
-<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency"><img src="https://img.shields.io/npm/dw/capacitor-plugin-app-tracking-transparency?style=flat-square" /></a>
-<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency"><img src="https://img.shields.io/npm/v/capacitor-plugin-app-tracking-transparency?style=flat-square" /></a>
+<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency">
+  <img src="https://img.shields.io/npm/l/capacitor-plugin-app-tracking-transparency?style=flat-square" />
+</a>
+<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency">
+  <img src="https://img.shields.io/npm/dw/capacitor-plugin-app-tracking-transparency?style=flat-square" />
+</a>
+<a href="https://www.npmjs.com/package/capacitor-plugin-app-tracking-transparency">
+  <img src="https://img.shields.io/npm/v/capacitor-plugin-app-tracking-transparency?style=flat-square" />
+</a>
 
 Capacitor plugin to request user authorization to access app-related data for tracking the user or the device. iOS only.
 
@@ -14,21 +20,32 @@ iOS only but with web fallback for development purposes.
 
 ## Plugin versions
 
-| Capacitor version | Plugin version                                    |
-| ---------- | ----------------------------------------- |
-| >= 6.x | >= 2.0.2 |
-| 5.x | >= 2.0.2 |
-| 4.x | >= 2.0.2 |
-| 3.x | >= 2.0.0 |
-| < 3.0.0 | 1.x.x |
+### Version 3.x (Swift Package Manager)
 
-For plugin version 1.x.x docs please refer to [branch v1](https://github.com/mahnuh/capacitor-plugin-app-tracking-transparency/tree/v1).
+Version 3.x introduces Swift Package Manager support, which is the recommended installation method for Capacitor 7 and 8.
+
+| Capacitor version | Plugin version |
+| ----------------- | -------------- |
+| 7.x / 8.x         | 3.x            |
+
+### Version 2.x (CocoaPods)
+
+If your project uses CocoaPods for iOS dependency management, use version 2.x. See [branch v2](https://github.com/mahnuh/capacitor-plugin-app-tracking-transparency/tree/v2) for documentation.
+
+| Capacitor version     | Plugin version |
+| --------------------- | -------------- |
+| 4.x / 5.x / 6.x / 7.x | 2.x            |
+| 3.x                   | >= 2.0.0       |
+
+### Version 1.x (Legacy)
+
+For Capacitor versions prior to 3.0.0, use plugin version 1.x. See [branch v1](https://github.com/mahnuh/capacitor-plugin-app-tracking-transparency/tree/v1) for documentation.
 
 ## Maintainers
 
-| Maintainer | GitHub                                    | Social                                        |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
-| Manuel Heidrich | [mahnuh](https://github.com/mahnuh) | [@mahnuh](https://twitter.com/mahnuh) |
+| Maintainer      | GitHub                              |                                          |
+| --------------- | ----------------------------------- | ---------------------------------------- |
+| Manuel Heidrich | [mahnuh](https://github.com/mahnuh) | [Sprintwerk GmbH](https://sprintwerk.de) |
 
 ## Install
 
@@ -48,9 +65,31 @@ Add this to your app's Info.plist and update the message according to your needs
 
 This message can be provided in multiple languages by using a `InfoPlist.strings` file. See the [Apple docs](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) or [this stack overflow answer](https://stackoverflow.com/a/25736915) for help.
 
-## Plugin demo
+## Example App
 
-There is a small demo app available to showcase this plugin and its usage: [capacitor-plugin-app-tracking-transparency-demo-app](https://github.com/mahnuh/capacitor-plugin-app-tracking-transparency-demo-app)
+An example app is included in the `example/` directory. To run it:
+
+1. Install dependencies:
+
+   ```bash
+   cd example
+   npm install
+   ```
+
+2. Build and sync:
+
+   ```bash
+   npm run build
+   npx cap sync ios
+   ```
+
+3. Open in Xcode:
+
+   ```bash
+   npx cap open ios
+   ```
+
+4. Run on a simulator or device (iOS 14+)
 
 ## Usage
 
@@ -87,9 +126,9 @@ Both available methods return `AppTrackingStatusResponse` with `status: AppTrack
 
 <docgen-index>
 
-* [`getStatus()`](#getstatus)
-* [`requestPermission()`](#requestpermission)
-* [Type Aliases](#type-aliases)
+- [`getStatus()`](#getstatus)
+- [`requestPermission()`](#requestpermission)
+- [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -104,8 +143,7 @@ getStatus() => Promise<AppTrackingStatusResponse>
 
 **Returns:** <code>Promise&lt;<a href="#apptrackingstatusresponse">AppTrackingStatusResponse</a>&gt;</code>
 
---------------------
-
+---
 
 ### requestPermission()
 
@@ -115,16 +153,13 @@ requestPermission() => Promise<AppTrackingStatusResponse>
 
 **Returns:** <code>Promise&lt;<a href="#apptrackingstatusresponse">AppTrackingStatusResponse</a>&gt;</code>
 
---------------------
-
+---
 
 ### Type Aliases
-
 
 #### AppTrackingStatusResponse
 
 <code>{ status: <a href="#apptrackingstatus">AppTrackingStatus</a> }</code>
-
 
 #### AppTrackingStatus
 
