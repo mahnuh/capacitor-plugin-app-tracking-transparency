@@ -15,7 +15,8 @@
   "dependencies": {
     "@capacitor/core": "8.0.0",
     "@capacitor/camera": "8.0.0",
-    "@capacitor/splash-screen": "8.0.0"
+    "@capacitor/splash-screen": "8.0.0",
+    "capacitor-plugin-app-tracking-transparency": "file:.."
   },
   "devDependencies": {
     "@capacitor/cli": "8.0.0",

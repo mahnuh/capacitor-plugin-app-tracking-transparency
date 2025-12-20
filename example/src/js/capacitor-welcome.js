@@ -1,5 +1,5 @@
 import { SplashScreen } from '@capacitor/splash-screen';
-import { Camera } from '@capacitor/camera';
+import { AppTrackingTransparency } from 'capacitor-plugin-app-tracking-transparency';
 
 window.customElements.define(
   'capacitor-welcome',
@@ -32,6 +32,12 @@ window.customElements.define(
         border-radius: 3px;
         text-decoration: none;
         cursor: pointer;
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+      .button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
       }
       main {
         padding: 15px;
@@ -54,35 +60,60 @@ window.customElements.define(
       main pre {
         white-space: pre-line;
       }
+      .status-box {
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 15px 0;
+      }
+      .status-label {
+        font-size: 0.8em;
+        color: #666;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      .status-value {
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #333;
+      }
+      .status-value.authorized { color: #4CAF50; }
+      .status-value.denied { color: #f44336; }
+      .status-value.restricted { color: #ff9800; }
+      .status-value.notDetermined { color: #2196F3; }
     </style>
     <div>
       <capacitor-welcome-titlebar>
-        <h1>Capacitor</h1>
+        <h1>App Tracking Transparency</h1>
       </capacitor-welcome-titlebar>
       <main>
         <p>
-          Capacitor makes it easy to build powerful apps for the app stores, mobile web (Progressive Web Apps), and desktop, all
-          with a single code base.
+          This example app demonstrates the App Tracking Transparency plugin for Capacitor.
         </p>
-        <h2>Getting Started</h2>
+        
+        <h2>Tracking Authorization Status</h2>
+        <div class="status-box">
+          <div class="status-label">Current Status</div>
+          <div class="status-value" id="status">Loading...</div>
+        </div>
+        
         <p>
-          You'll probably need a UI framework to build a full-featured app. Might we recommend
-          <a target="_blank" href="http://ionicframework.com/">Ionic</a>?
+          <button class="button" id="get-status">Get Status</button>
+          <button class="button" id="request-permission">Request Permission</button>
         </p>
+        
+        <hr>
+        
+        <h2>Status Meanings</h2>
         <p>
-          Visit <a href="https://capacitorjs.com">capacitorjs.com</a> for information
-          on using native features, building plugins, and more.
+          <strong>notDetermined:</strong> User has not yet been asked for permission.<br>
+          <strong>authorized:</strong> User granted permission to track.<br>
+          <strong>denied:</strong> User denied permission to track.<br>
+          <strong>restricted:</strong> Tracking is restricted (e.g., parental controls).
         </p>
-        <a href="https://capacitorjs.com" target="_blank" class="button">Read more</a>
-        <h2>Tiny Demo</h2>
+        
         <p>
-          This demo shows how to call Capacitor plugins. Say cheese!
-        </p>
-        <p>
-          <button class="button" id="take-photo">Take Photo</button>
-        </p>
-        <p>
-          <img id="image" style="max-width: 100%">
+          <em>Note: On iOS Simulator, the status will always be "authorized" unless you're running on iOS 14+.</em>
         </p>
       </main>
     </div>
@@ -92,22 +123,42 @@ window.customElements.define(
     connectedCallback() {
       const self = this;
 
-      self.shadowRoot.querySelector('#take-photo').addEventListener('click', async function (e) {
+      // Get initial status
+      this.updateStatus();
+
+      self.shadowRoot.querySelector('#get-status').addEventListener('click', async function () {
+        await self.updateStatus();
+      });
+
+      self.shadowRoot.querySelector('#request-permission').addEventListener('click', async function () {
         try {
-          const photo = await Camera.getPhoto({
-            resultType: 'uri',
-          });
-
-          const image = self.shadowRoot.querySelector('#image');
-          if (!image) {
-            return;
-          }
-
-          image.src = photo.webPath;
+          const result = await AppTrackingTransparency.requestPermission();
+          self.setStatus(result.status);
+          console.log('Permission result:', result);
         } catch (e) {
-          console.warn('User cancelled', e);
+          console.error('Error requesting permission:', e);
+          self.setStatus('Error: ' + e.message);
         }
       });
+    }
+
+    async updateStatus() {
+      try {
+        const result = await AppTrackingTransparency.getStatus();
+        this.setStatus(result.status);
+        console.log('Current status:', result);
+      } catch (e) {
+        console.error('Error getting status:', e);
+        this.setStatus('Error: ' + e.message);
+      }
+    }
+
+    setStatus(status) {
+      const statusEl = this.shadowRoot.querySelector('#status');
+      if (statusEl) {
+        statusEl.textContent = status;
+        statusEl.className = 'status-value ' + status;
+      }
     }
   },
 );
