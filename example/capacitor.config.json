@@ -1,0 +1,10 @@
+{
+  "appId": "dev.mahnuh.apptrackingtransparencyexample",
+  "appName": "app-tracking-transparency-example",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
