@@ -14,7 +14,6 @@ public class AppTrackingTransparencyPlugin: CAPPlugin, CAPBridgedPlugin {
         CAPPluginMethod(name: "getStatus", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "requestPermission", returnType: CAPPluginReturnPromise)
     ]
-    private let implementation = AppTrackingTransparency()
 
     @objc func getStatus(_ call: CAPPluginCall) {
         if #available(iOS 14.0, *) {
